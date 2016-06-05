@@ -2,9 +2,9 @@ set encoding=utf-8
 scriptencoding utf-8
 
 ":1 Vundle setup
-set rtp+=~/.vim/bundle/vundle.bundle/
+set rtp+=~/.vim/bundle/vundle/
 set rtp+=/Applications/MacVim.app/Contents/Resources/vim/runtime
-call g:vundle#rc()
+call vundle#rc()
 
 Bundle 'gmarik/vundle'
 
@@ -27,12 +27,12 @@ let g:NERDTreeMouseMode = 3
 let g:NERDTreeWinPos = 'right'
 let g:NERDTreeBookmarksFile = $HOME . '/.vim/.nerdtree-bookmarks'
 
-function! g:NERDTreeCustomIgnoreFilter(path)
+function! NERDTreeCustomIgnoreFilter(path)
   if b:NERDTreeShowHidden ==# 1
     return 0
   endif
 
-  let l:pathlist = [
+  let pathlist = [
         \ $HOME . '/Desktop',
         \ $HOME . '/Documents',
         \ $HOME . '/Downloads',
@@ -44,19 +44,19 @@ function! g:NERDTreeCustomIgnoreFilter(path)
         \ $HOME . '/Videos',
         \]
 
-  let l:patterns = [
+  let patterns = [
         \ '\.min\.js$',
         \ '\.min\.css$',
         \]
 
-  for l:p in l:pathlist
-    if a:path.pathSegments == split(l:p, '/')
+  for p in pathlist
+    if a:path.pathSegments == split(p, '/')
       return 1
     endif
   endfor
 
-  for l:p in l:patterns
-    if a:path.getLastPathComponent(0) =~# l:p
+  for p in patterns
+    if a:path.getLastPathComponent(0) =~# p
       return 1
     endif
   endfor
@@ -91,7 +91,7 @@ Bundle 'mitsuhiko/vim-jinja'
 " endfold
 
 ":1 Standard (frozen) configurations
-syntax on                              " Enable syntax processing
+syntax on                              " Enable syntax hightlight
 filetype on                            " Enable file type detection
 filetype plugin on                     " Enable plugins
 filetype indent on                     " Enable indent
@@ -135,7 +135,7 @@ autocmd vimrc BufEnter * if &filetype != 'qf' | nmap <CR> za| endif
 " endfold
 
 ":1 Aestetic customizations
-colorscheme wombat256
+colorscheme underwater
 
 " Contrast reduce for brackets
 autocmd vimrc BufEnter * syn match Braces display '[{}()\[\]]'
@@ -145,10 +145,7 @@ autocmd vimrc BufEnter * hi def link Braces comment
 set rulerformat=%50(%=%f\ %y%m%r%w\ %l,%c%V\ %P%)
 
 " Tab Configuration
-set tabstop=2      " Number of visual spaces per TAB
-set shiftwidth=2   " Number of spaces to use in (auto)indent
-set softtabstop=2  " Number of spaces in tab when editing
-set noexpandtab    " Use tab character instead of spaces
+set tabstop=2 shiftwidth=2 softtabstop=2 noexpandtab
 
 " Define list characters
 set listchars=tab:▸\ ,eol:¬,trail:~,extends:>,precedes:<
@@ -162,7 +159,9 @@ set formatoptions+=n
 
 ":1 Keyboard mapping
 " Change the leader map
+let mapleader = ','
 let g:mapleader = ','
+let maplocalleader = ','
 let g:maplocalleader = ','
 
 " Shortcut to fold method change
@@ -215,10 +214,10 @@ endif
 
 " Keymap switch
 let g:current_keymap = ''
-function! g:ToggleKeymap()
+function! ToggleKeymap()
   if g:current_keymap ==# ''
-    set keymap=mongolian-dvorak
-    let g:current_keymap = 'mongolian-dvorak'
+    set keymap=mongolian
+    let g:current_keymap = 'mongolian'
   else
     set keymap=""
     let g:current_keymap = ''
@@ -267,23 +266,23 @@ if has('gui_running')
 endif
 
 if system('uname') =~# 'Darwin'
-  set guifont=Monaco:h13        " Change GUI font
+  set guifont=Monaco:h14        " Change GUI font
   set clipboard=unnamed         " Use the OS clipboard by default
 endif
 " endfold
 
-so $HOME/.vim/dvorak.vimrc
+
 so $HOME/.vim/filetype.vimrc
 
-function! g:SourcePrint()
+function! SourcePrint()
   :colo macvim
   :set background=light
   :TOhtml
   :w! ~/vim-source.html
   :bdelete!
   :!open ~/vim-source.html
-  :color wombat256
+  :color underwater
   :set background=dark
 endfunction
 
-command! SourcePrint :call g:SourcePrint()
+command! SourcePrint :call SourcePrint()

@@ -21,8 +21,6 @@ noremap s :
 noremap S :
 noremap - $
 noremap _ ^
-noremap $ <nop>
-noremap ^ <nop>
 
 " Dvorak: NERDTree
 let g:NERDTreeMapOpenInTab = '<C-S-t>'
