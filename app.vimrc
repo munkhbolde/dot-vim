@@ -135,7 +135,7 @@ autocmd vimrc BufEnter * if &filetype != 'qf' | nmap <CR> za| endif
 " endfold
 
 ":1 Aestetic customizations
-colorscheme underwater
+colorscheme tender
 
 " Contrast reduce for brackets
 autocmd vimrc BufEnter * syn match Braces display '[{}()\[\]]'
