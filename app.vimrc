@@ -216,8 +216,8 @@ endif
 let g:current_keymap = ''
 function! ToggleKeymap()
   if g:current_keymap ==# ''
-    set keymap=mongolian_utf8
-    let g:current_keymap = 'mongolian_utf8'
+    set keymap=qwerty-mongolian
+    let g:current_keymap = 'qwerty-mongolian'
   else
     set keymap=""
     let g:current_keymap = ''

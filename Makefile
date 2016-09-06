@@ -5,7 +5,6 @@ init:
 	pip install vim-vint
 lint:
 	vint app.vimrc
-	vint dvorak.vimrc
 	vint filetype.vimrc
 	vint colors/*.vim
 	vint keymap/*.vim
