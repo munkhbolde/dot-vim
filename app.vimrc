@@ -135,7 +135,7 @@ autocmd vimrc BufEnter * if &filetype != 'qf' | nmap <CR> za| endif
 " endfold
 
 ":1 Aestetic customizations
-colorscheme tender
+colorscheme tendercontrast
 
 " Contrast reduce for brackets
 autocmd vimrc BufEnter * syn match Braces display '[{}()\[\]]'
@@ -216,8 +216,8 @@ endif
 let g:current_keymap = ''
 function! ToggleKeymap()
   if g:current_keymap ==# ''
-    set keymap=mongolian
-    let g:current_keymap = 'mongolian'
+    set keymap=mongolian_utf8
+    let g:current_keymap = 'mongolian_utf8'
   else
     set keymap=""
     let g:current_keymap = ''
