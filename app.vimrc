@@ -3,7 +3,6 @@ scriptencoding utf-8
 
 ":1 Vundle setup
 set rtp+=~/.vim/bundle/vundle/
-set rtp+=/Applications/MacVim.app/Contents/Resources/vim/runtime
 call vundle#rc()
 
 Bundle 'gmarik/vundle'
@@ -148,7 +147,7 @@ set tabstop=2 shiftwidth=2 softtabstop=2 noexpandtab
 set listchars=tab:▸\ ,eol:¬,trail:~,extends:>,precedes:<
 
 " Define line break
-set linebreak showbreak=…     " Wrap long line
+set linebreak showbreak=…     " Wrap long line
 set fillchars=vert:\|,fold:\  " Make foldtext more clean
 
 " Recognize numbered list in text formatting
