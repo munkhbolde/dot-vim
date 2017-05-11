@@ -255,6 +255,7 @@ autocmd vimrc BufEnter * set visualbell t_vb=
 if has('gui_running')
   set guifont=Monaco\ 10          " Change GUI font
   set guioptions-=T               " Remove toolbar
+  set guioptions-=m               " Remove menubar
   set guioptions-=l               " Remove scroll
   set guioptions-=L               " Remove scroll in splitted window
   set guicursor+=n-c:hor10-Cursor " Change cursor shape to underscore
